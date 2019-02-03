@@ -9,18 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var currentValue: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func showAlert() {
-        // создаем сам алерт-контроллер
-        let alert = UIAlertController(title: "Hello, World", message: "This is my first app!", preferredStyle: .alert)
+        // сообщение для пользователя о том, какое значение сейчас имеет слайдер
+        let message = "The value of the slider is: \(currentValue)"
+        
+        // создаем сам алерт-контроллер и добавляем в него наше сообщение
+        let alert = UIAlertController(title: "Hi...", message: message, preferredStyle: .alert)
         
         // создаем "действие" для алерт-контроллера (в данном случае кнопку "Awesome", которая просто закрывает уведомление)
-        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         // добавляем в наш алерт-контроллер созданное ранее "действие"
         alert.addAction(action)
@@ -29,6 +33,11 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
         
+    }
+    
+    @IBAction func sliderMoved(_ slider: UISlider) {
+        // ловим значение слайдера и округляем его для нашей переменной
+        currentValue = lroundf(slider.value)
     }
 }
 
