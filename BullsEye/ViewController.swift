@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var targetValue = 0
     var currentValue: Int = 50
+    var score = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +25,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlert() {
-        // сообщение для пользователя о том, какое значение сейчас имеет слайдер
-        let message = "The value of the slider is: \(currentValue)" + "\nThe target value is: \(targetValue)"
+        
+        // считаем, насколько близко пользователь "угадал" число
+        let difference = abs(currentValue - targetValue)
+        
+        // считаем, сколько "очков" набрал пользователь
+        let points = 100 - difference
+        
+        score += points
+        
+        // сообщение для пользователя
+        let message = "You scored \(points) points!"
         
         // создаем сам алерт-контроллер и добавляем в него наше сообщение
         let alert = UIAlertController(title: "Hi...", message: message, preferredStyle: .alert)
         
-        // создаем "действие" для алерт-контроллера (в данном случае кнопку "Awesome", которая просто закрывает уведомление)
+        // создаем "действие" для алерт-контроллера (в данном случае кнопку "ok", которая просто закрывает уведомление)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         // добавляем в наш алерт-контроллер созданное ранее "действие"
@@ -59,6 +70,7 @@ class ViewController: UIViewController {
     
     func updateLabels() {
         targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
     }
 }
 
