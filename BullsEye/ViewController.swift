@@ -23,16 +23,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startNewRound() //начальная установка рандомного значения и слайдера
+        startNewGame() //начальная установка рандомного значения и слайдера
     }
-
+    
     @IBAction func showAlert() {
-        
         // считаем, насколько близко пользователь "угадал" число
         let difference = abs(currentValue - targetValue)
         
         // считаем, сколько "очков" набрал пользователь
-        let points = 100 - difference
+        var points = 100 - difference
+    
+        let title: String
+        
+        if difference == 0 {
+            title = "Perfect!"
+            points += 100
+        } else if difference < 5 {
+            title = "You almost had it!"
+            if difference == 1 {
+                points += 50
+            }
+        } else if difference < 10 {
+            title = "Pretty good!"
+        } else {
+            title = "Not even close..."
+        }
         
         score += points
         
@@ -40,25 +55,31 @@ class ViewController: UIViewController {
         let message = "You scored \(points) points!"
         
         // создаем сам алерт-контроллер и добавляем в него наше сообщение
-        let alert = UIAlertController(title: "Hi...", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         // создаем "действие" для алерт-контроллера (в данном случае кнопку "ok", которая просто закрывает уведомление)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.startNewRound()
+        }
         
         // добавляем в наш алерт-контроллер созданное ранее "действие"
         alert.addAction(action)
         
         // показываем(активируем на экране) наш созданный алерт-контроллер
         present(alert, animated: true, completion: nil)
-        
-        // начинаем новый раунд, устанавливая новые значения рандома и слайдера
-        startNewRound()
     }
     
     // вызывается, когда пользователь "использует" слайдер
     @IBAction func sliderMoved(_ slider: UISlider) {
         // ловим значение слайдера и округляем его для нашей переменной
         currentValue = lroundf(slider.value)
+    }
+    
+    // начинаем игру с самого начала
+    @IBAction func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
     }
     
     // обновляем значения для нового раунда
@@ -71,6 +92,7 @@ class ViewController: UIViewController {
         updateLabels()
     }
     
+    // обновляем все лейблы
     func updateLabels() {
         targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
