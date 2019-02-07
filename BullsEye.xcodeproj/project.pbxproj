@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F60324D8220B75CD00E3D0A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60324D7220B75CD00E3D0A3 /* AboutViewController.swift */; };
+		F60324DA220C5E0400E3D0A3 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = F60324D9220C5E0400E3D0A3 /* BullsEye.html */; };
 		F6BF09B52205E6F70014294C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BF09B42205E6F70014294C /* AppDelegate.swift */; };
 		F6BF09B72205E6F70014294C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BF09B62205E6F70014294C /* ViewController.swift */; };
 		F6BF09BA2205E6F70014294C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BF09B82205E6F70014294C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		F60324D7220B75CD00E3D0A3 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F60324D9220C5E0400E3D0A3 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 		F6BF09B12205E6F70014294C /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BF09B42205E6F70014294C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6BF09B62205E6F70014294C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		F6BF09B32205E6F70014294C /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				F60324D9220C5E0400E3D0A3 /* BullsEye.html */,
 				F6BF09B42205E6F70014294C /* AppDelegate.swift */,
 				F6BF09B62205E6F70014294C /* ViewController.swift */,
 				F60324D7220B75CD00E3D0A3 /* AboutViewController.swift */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6BF09BF2205E6F90014294C /* LaunchScreen.storyboard in Resources */,
+				F60324DA220C5E0400E3D0A3 /* BullsEye.html in Resources */,
 				F6BF09BC2205E6F90014294C /* Assets.xcassets in Resources */,
 				F6BF09BA2205E6F70014294C /* Main.storyboard in Resources */,
 			);
