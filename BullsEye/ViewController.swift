@@ -98,6 +98,13 @@ class ViewController: UIViewController {
         score = 0
         round = 0
         startNewRound()
+        
+        // добавляем анимацию
+        let transition = CATransition()
+        transition.type = CATransitionType.fade
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        view.layer.add(transition, forKey: nil)
     }
     
     // обновляем значения для нового раунда
