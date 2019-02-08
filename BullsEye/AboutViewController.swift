@@ -23,6 +23,7 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func close() {
+        // отклоняем текущий вью-контроллер, который представлен как "модальный"
         dismiss(animated: true, completion: nil)
     }
 
